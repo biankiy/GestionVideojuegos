@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      xmlns="http://www.w3.org/1999/xhtml"> <!-- Conectar thymeleaf // para que no tire error thymeleaf-->
+    <head>
+        <title>Datos Empleados</title>
+        <meta charset="UTF-8">
+
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"></header>
+
+        <h2>[[#{empleado.formulario}]]</h2>
+        <a th:href="@{/}">[[#{boton.regresar}]]</a> <!-- Clink para regresar a al inicio -->
+        <br/>
+        <form th:action="@{/guardar}" method="post" th:object="${empleado}">
+            <input  type="hidden" name="idEmpleado" th:field="*{idEmpleado}"/>
+
+            <label for="nombre">[[#{empleado.nombre}]]:</label>
+            <input type="text" name="nombre" th:field="*{nombre}"/>
+            <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error Nombre</span>   
+
+            <br/>
+            <label for="apellido">[[#{empleado.apellido}]]:</label>
+            <input type="text" name="apellido" th:field="*{apellido}"/>
+            <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}">Error Apellido</span>   
+
+            <br/>
+            <label for="email">[[#{empleado.email}]]:</label>
+            <input type="text" name="email" th:field="*{email}"/>
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error Email</span>   
+
+            <br/>
+            <label for="telefono">[[#{empleado.telefono}]]</label>
+            <input type="text" name="telefono" th:field="*{telefono}"/>
+            <br/>
+
+            <input type="submit" name="guardar" th:value="#{boton.guardar}"/>
+
+        </form> <!-- este formulario se asocia con el objeto empleado -->
+        
+        <footer th:replace="layout/plantilla :: footer"></footer>
+    </body>
+</html>

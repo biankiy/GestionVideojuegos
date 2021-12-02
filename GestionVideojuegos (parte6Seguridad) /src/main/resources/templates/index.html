@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      xmlns="http://www.w3.org/1999/xhtml"> <!-- Conectar thymeleaf -->
+    <head>
+        <title>Empleados</title>
+        <meta charset="UTF-8">
+
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"></header>
+
+        <a th:href="@{/agregar}" th:text="#{empleado.crear}">Crear Empleado</a>
+        <br/>        
+        <div th:if="${empleados != null and !empleados.empty}"> <!-- [if] Solo se va a ejecutar en el caso que la lista no este vacia-->
+            <table border="1"> <!-- Crear bordes en la tabla -->
+                <tr>
+                    <th>[[#{empleado.nombre}]]</th>
+                    <th>[[#{empleado.apellido}]]</th>
+                    <th>[[#{empleado.email}]]</th>
+                    <th>[[#{empleado.telefono}]]</th>
+                    <th>[[#{boton.editar}]]</th>
+                    <th>[[#{boton.eliminar}]]</th>
+
+                </tr>
+
+
+                <tr th:each="empleado : ${empleados}"> <!-- empleados es la lista -->
+                    <td th:text="${empleado.nombre}">Mostrar Nombre</td>
+                    <td th:text="${empleado.apellido}">Mostrar Apellido</td>
+                    <td th:text="${empleado.telefono}">Mostrar Telefono</td>
+                    <td th:text="${empleado.email}">Mostrar e-mail</td> 
+                    <td> <a th:href="@{/editar/} + ${empleado.idEmpleado}" />[[#{boton.editar}]]</td>
+                    <td> <a th:href="@{/eliminar/} + ${empleado.idEmpleado}"/>[[#{boton.eliminar}]]</td>
+                </tr>
+            </table> 
+        </div>
+        <div th:if="${empleados == null or empleados.empty}">
+          [[#{empleado.lista-vacia}]]
+        </div>
+
+        <footer th:replace="layout/plantilla :: footer"></footer>
+    </body>
+</html>
