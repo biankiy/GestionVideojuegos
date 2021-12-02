@@ -1,0 +1,87 @@
+body {
+    background-image: url(../img/arcade3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.formulario {
+    background: rgba(60, 180, 174, 0.521);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 60px rgba(199, 127, 221, 0.952);
+    color: white;
+}
+
+.form-control {
+    background: rgb(65, 202, 198);
+    border-style: none;
+    transition: 0.5s ease-in;
+    outline: none;
+    box-shadow: none;
+}
+
+.form-control:focus {
+    background: white;
+    box-shadow: none;
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: rgb(5, 49, 42);
+}
+
+.ingresar {
+    background: #ae60be9d;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 700!important;
+    color: rgb(255, 255, 255);
+    box-shadow: 0 0 50px rgba(48, 118, 121, 0.568);
+    transition: 0.5s ease-in;
+}
+
+.ingresar:hover {
+    color: rgb(197, 0, 122);
+}
+
+.olvide {
+    color: white;
+    text-decoration-style: none;
+    text-decoration-line: none;
+}
+
+.olvide:hover {
+    color: white;
+    text-decoration-style: none;
+    text-decoration-line: none;
+    cursor: pointer;
+}
+
+.olvide1 {
+    color: white;
+    text-decoration-style: none;
+    text-decoration-line: none;
+    font-size: 20px;
+    font-weight: 700!important;
+    /* border: 2px solid white; */
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, .5);
+}
+
+.olvide1:hover {
+    color: white;
+    text-decoration-style: none;
+    text-decoration-line: none;
+    cursor: pointer;
+}
+footer{
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    height: 25px;
+    bottom: 0;
+    position: fixed;    
+    text-align: end;
+    color: rgb(236, 203, 53);
+}
